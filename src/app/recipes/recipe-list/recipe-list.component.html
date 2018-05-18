@@ -2,6 +2,6 @@
   <button class="btn btn-success">Add New Recipe</button>
 </div>
 <hr />
-<div class="row" *ngFor="let recipe of recipes">
-  <app-recipe-item></app-recipe-item>
+<div class="row" >
+  <app-recipe-item *ngFor="let recipeEl of recipes" [recipe]="recipeEl" (selectedRecipe)="onSelectedRecipe(recipeEl)"> </app-recipe-item>
 </div>
