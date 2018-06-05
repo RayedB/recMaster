@@ -11,4 +11,8 @@ export class RecipeService {
     new Recipe('Third Recipe', 'Test recipe for our app', 'https://img.buzzfeed.com/buzzfeed-static/static/2016-06/8/9/campaign_images/buzzfeed-prod-web09/23-boneless-chicken-breast-recipes-that-are-actua-2-30592-1465393955-1_dblbig.jpg'),
   ];
   constructor() { }
+
+  deleteRecipe(id: number) {
+    this.recipes.splice(id, 1);
+  }
 }
