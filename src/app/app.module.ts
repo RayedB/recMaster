@@ -11,9 +11,16 @@ import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.co
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingEditComponent } from './shopping/shopping-edit/shopping-edit.component';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 
 const appRoutes: Routes = [
-  {path: 'recipes', component: RecipesComponent},
+  {path: '', redirectTo: 'recipes', pathMatch: 'full'},
+  {path: 'recipes', component: RecipesComponent,
+    children: [
+      { path: '', component: RecipeStartComponent },
+      { path: ':id', component: RecipeDetailComponent }
+    ]
+  },
   {path: 'shopping-list', component: ShoppingListComponent},
 ];
 
@@ -27,7 +34,8 @@ const appRoutes: Routes = [
     ShoppingListComponent,
     RecipeDetailComponent,
     RecipeItemComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
+    RecipeStartComponent
   ],
   imports: [
     BrowserModule,
